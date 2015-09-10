@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <bean id="seo.context.aware" class="oracle.webcenter.sites.framework.seo.context.SEOContextAware"/>
+
+    <bean id="services.seo.scribe" class="oracle.webcenter.sites.framework.seo.services.impl.ScribeSEOServiceImpl">
+        <property name="contentAnalysisServiceUrl"      value="http://api.scribeseo.com/analysis/content?apikey=scribe-261ad984da6a44fcb6746759be7f0cce"/>
+        <property name="suggestionsServiceUrl"          value="http://api.scribeseo.com/analysis/kw/suggestions?apikey=scribe-261ad984da6a44fcb6746759be7f0cce"/>
+        <property name="keywordAnalysisServiceUrl"      value="http://api.scribeseo.com/analysis/kw/detail?apikey=scribe-261ad984da6a44fcb6746759be7f0cce"/>
+        <property name="connectTimeoutInMilliSeconds"   value="5000"/>
+    </bean>
+
+</beans>

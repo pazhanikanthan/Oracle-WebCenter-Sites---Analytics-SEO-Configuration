@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+    
+    <bean id="google.analytics.aware" class="oracle.webcenter.sites.framework.analytics.aware.AnalyticsAware"/>
+
+    <bean id="service.account.priv.key" class="oracle.webcenter.sites.framework.analytics.model.google.ServiceAccountPrivateKey">
+        <constructor-arg value="D:/APPS/sites/qsk/2.3.6/tomcat7034/webapps/cs/WEB-INF/serviceaccount-privatekey.p12" type="java.lang.String" />
+    </bean>
+    
+    <bean id="services.analytics.google" class="oracle.webcenter.sites.framework.analytics.services.impl.google.GoogleAnalyticsServiceImpl" init-method="initialise">
+        <property name="serviceAccountPrivateKey" ref="service.account.priv.key"/>
+        <property name="serviceAccountEmail" value="115627830109-u51ntr941ro3tkbuip2f3u85aqgbst68@developer.gserviceaccount.com"/>
+        <property name="accountName" value="JSK"/>
+    </bean>
+
+</beans>
+
